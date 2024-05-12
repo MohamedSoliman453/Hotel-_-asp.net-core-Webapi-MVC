@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Hotel.MVC.DTO.RoomStatusDTO>
+
+@{
+    ViewData["Title"] = "Check Room Availability";
+}
+
+<h2>Room Availability</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room ID</th>
+            <th>Room Type</th>
+            <th>Branch Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.RoomID</td>
+                <td>@room.RoomTypeName</td>
+                <td>@room.BranchName</td>
+                <td>@room.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

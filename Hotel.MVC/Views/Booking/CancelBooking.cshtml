@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Cancel Booking";
+}
+
+<h2>Cancel Booking</h2>
+
+<form asp-action="CancelBooking" method="post">
+    <div>
+        <label>Booking ID:</label>
+        <input type="number" name="bookingId" />
+    </div>
+    <button type="submit">Cancel</button>
+</form>

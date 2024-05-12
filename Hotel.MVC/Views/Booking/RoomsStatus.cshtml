@@ -1,0 +1,17 @@
+﻿@model Hotel.MVC.DTO.BookingDTO
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<h2>Create Booking</h2>
+
+<form asp-action="CreateBooking" method="post">
+    @* Add form fields for each property in BookingDTO *@
+    <div>
+        <label asp-for="CustomerID"></label>
+        <input asp-for="CustomerID" />
+    </div>
+    @* Other fields... *@
+    <button type="submit">Create Booking</button>
+</form>

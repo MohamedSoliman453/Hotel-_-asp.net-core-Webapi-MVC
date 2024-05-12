@@ -1,0 +1,228 @@
+﻿@model Hotel.MVC.DTO.LoginUserDTO
+
+@{
+    Layout = null; // Ignore layouts for this page
+}
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <section>
+
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <h2>Hotel Login</h2>
+
+            <div class="text">
+                <ion-icon name="person-outline"></ion-icon>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <label asp-for="UserName"></label>
+            </div>
+            <div class="text">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input asp-for="Password" class="form-control" type="password" />
+                <label asp-for="Password"></label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <input class="submit" type="submit" value="Login">
+            <footer>
+                Not a member? <a href="@Url.Action("Register", "Account")">Register</a>
+            </footer>
+        </form>
+
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(90deg, #2980b9, #2b1bbb);
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section {
+        background-color: #fff;
+        width: 400px;
+        border-radius: 12px;
+    }
+
+    figure {
+        margin: 20px 0 0 0;
+        width: 100%;
+        border-bottom: 1px solid silver;
+    }
+
+    .img-logo {
+        width: 150px;
+        height: 50px;
+        padding: 0 0 15px 125px;
+    }
+
+    form {
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    .text {
+        position: relative;
+        border-bottom: 2px solid gray;
+        margin: 30px 0;
+    }
+
+        .text input {
+            width: 100%;
+            border: none;
+            outline: none;
+            height: 40px;
+            padding: 0 5px;
+            font-size: 16px;
+            background: none;
+        }
+
+    label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        color: gray;
+        font-size: 16px;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    span {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        transition: .5s;
+        width: 0;
+        height: 2px;
+        background-color: #2980b9;
+    }
+
+    .text input:focus ~ label,
+    .text input:valid ~ label {
+        color: #2980b9;
+        top: -10px;
+    }
+
+    .text input:focus ~ span,
+    .text input:valid ~ span {
+        width: 100%;
+    }
+
+    .forget {
+        margin: -5px 0 10px 5px;
+    }
+
+        .forget a {
+            color: gray;
+            text-decoration: none;
+        }
+
+            .forget a:hover {
+                color: rgb(92, 92, 92);
+            }
+
+    .submit {
+        width: 100%;
+        height: 40px;
+        border-radius: 25px;
+        background-color: #2980b9;
+        border: 1px solid;
+        font-size: 16px;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+
+        .submit:hover {
+            border-color: #2980b9;
+            transition: .5s;
+        }
+
+    footer {
+        text-align: center;
+        margin: 30px 0;
+        color: rgb(83, 83, 83);
+    }
+
+        footer a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+
+            footer a:hover {
+                color: blue;
+            }
+
+    .check {
+        margin-left: 65px;
+    }
+
+        .check p {
+            color: gray;
+        }
+
+        .check input, p {
+            display: inline-block;
+        }
+
+    .check-box:checked + p {
+        color: black;
+    }
+
+    ion-icon {
+        position: absolute;
+        right: 4px;
+        top: 15px
+    }
+</style>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div style="color: red;">@ViewBag.ErrorMessage</div>
+}
+
+@* @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#loginForm").submit(function (event) {
+                event.preventDefault();
+                var email = $("#email").val();
+                var password = $("#password").val();
+
+                $.ajax({
+                    url: 'https://localhost:44348/api/account/login', // Update with your API URL
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ email: email, password: password }),
+                    success: function () {
+                        window.location.href = '@Url.Action("Index", "Home")'; // Redirect on success
+                    },
+                    error: function () {
+                        $("#errorMessage").text("Invalid login attempt. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
+} *@

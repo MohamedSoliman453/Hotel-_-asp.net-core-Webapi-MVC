@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Update Booking";
+}
+
+<h2>Update Booking</h2>
+
+<form asp-action="UpdateBooking" method="post">
+    <div>
+        <label>Booking ID:</label>
+        <input type="number" name="bookingId" />
+    </div>
+    <div>
+        <label>Updated Booking Details:</label>
+        <textarea name="updatedBookingDetails"></textarea>
+    </div>
+    <button type="submit">Update</button>
+</form>
